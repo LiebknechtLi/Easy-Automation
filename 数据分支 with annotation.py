@@ -33,8 +33,8 @@ for row in data:
         res.append('22及以前') #18-33行的功能，是判断Row Labels行中包含的每个数字的2-4位是否含22、23。同时含有，返回“23合并‘；只含有23，返回”今年前期“；其他情况，返回”22及以前“
 
 res = np.array(res)
-df['开票时间'] = res
-print(df['开票时间'])
+df['开票时间'] = res #新建“开票时间”列
+print(df['开票时间']) 
 
 df.iloc[1:, 4] = df.iloc[1:,4].astype(float)
 df.iloc[1:, 5] = df.iloc[1:,5].astype(float) #一直运行到这里都没有问题。。。
@@ -60,7 +60,7 @@ x3=choices[2]
 
 df['开票状态'] =np.where(condition1,x1,
                        np.where(condition2,x2,
-                               np.where(condition3,x3,'null'))) #根据conditions返回choices
+                               np.where(condition3,x3,'null'))) #新建“开票状态”列，根据conditions返回choices
 
 
 print(df)
